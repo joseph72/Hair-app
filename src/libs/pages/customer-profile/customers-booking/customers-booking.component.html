@@ -1,0 +1,23 @@
+<app-table>
+  <ng-container columnHeader>
+    <th *ngFor="let item of header">{{item}}</th>
+  </ng-container>
+  <ng-container columnBody>
+    <tr  *ngFor="let item of table">
+      <td>
+        <div class="grid max-auto gap-4 items-center">
+          <div ><img [src]="item.pic" alt="" /></div>
+          <div>{{ item.serviceProvider }}</div>
+        </div>
+      </td>
+      <td>
+        {{item.service}}
+       </td>
+       <td>{{item.type}}</td>
+       <td>{{item.date}}</td>
+       <td>{{item.value}}</td>
+       <td>{{ item.bookingStatus}}</td>
+       <td>{{ item.paymentStatus}}</td>
+    </tr>
+  </ng-container>
+</app-table>

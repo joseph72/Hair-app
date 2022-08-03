@@ -1,0 +1,106 @@
+
+  <div>
+    <div class="lg:hidden xl:hidden"><img class="h-24" src="assets/images/logo-1.png" alt=""></div>
+    <h1 class="">Signup for an account</h1>
+   </div>
+<form action="">
+  <div class="lg:grid lg:grid-cols-12 md:grid-cols-6 sm:grid-cols-6 gap-6">
+    <div class="pt-2 mb-4 col-span-6 ">
+      <label class="" for="">First Name</label>
+      <input
+        type="text"
+        placeholder="john"
+        class="mt-1 w-full border-gray-300 border bg-transparent px-3 rounded-md text-sm  "
+      />
+    </div>
+    <div class="pt-2 mb-4 col-span-6 ">
+      <label class="mb-4" for="">Last Name</label>
+      <input
+        type="text"
+        placeholder="Doe"
+        class=" mt-1 w-full border-gray-300 border bg-transparent px-3 rounded-md text-sm "
+      />
+    </div>
+
+  <div class="pt-2 mb-4 col-span-12">
+    <label for="">Email</label>
+    <input
+      type="email"
+      placeholder="john@gmail.com"
+      class="mt-1 w-full border-gray-300 border bg-transparent px-3 rounded-md text-sm"
+    />
+
+  </div>
+    <div class="pt-2 mb-4 col-span-6 relative">
+      <label for="">Password</label>
+      <img *ngIf="eyeOff" (click)="passwordToggle()" class="absolute right-1 top-12 w-5 cursor-pointer" src="assets/images/eyeon.svg" alt="">
+      <img *ngIf="show" (click)="passwordToggle()" class="absolute right-1 top-12 w-5 cursor-pointer" src="assets/images/eyeoff.svg" alt="">
+      <input
+      [type]="show ? 'text' : 'password'"
+        placeholder=""
+        class="mt-1 w-full border-gray-300 border bg-transparent px-3 rounded-md text-sm"
+      />
+      </div>
+      <div class="pt-2 mb-4 col-span-6 relative">
+        <label for="">Re-type Password</label>
+        <img *ngIf="eyeOff" (click)="passwordToggle()" class="absolute right-1 top-12 w-5 cursor-pointer" src="assets/images/eyeon.svg" alt="">
+        <img *ngIf="show" (click)="passwordToggle()" class="absolute right-1 top-12 w-5 cursor-pointer" src="assets/images/eyeoff.svg" alt="">
+        <input
+        [type]="show ? 'text' : 'password'"
+          placeholder=""
+          class="mt-1 w-full border-gray-300 border bg-transparent px-3 rounded-md text-sm"
+        />
+        </div>
+
+  </div>
+</form>
+    <div class="">
+      <button class="button btn w-full" (click)="openOtp()">Signup</button>
+    </div>
+    <div class="text-center mt-2">
+      Already have an account? <b class="cursor-pointer" routerLink="/auth/login">Log in</b>
+    </div>
+
+
+
+    <nz-modal
+  [(nzVisible)]="isVisible"
+  [nzCentered]="true"
+  [nzFooter]="null"
+  [nzClosable]="false"
+  (nzOnOk)="handleOk()"
+  [nzWidth]="350"
+>
+  <ng-container *nzModalContent>
+    <div class="">
+      <h1>OTP</h1>
+      <p>
+        Enter the digits sent to your email
+      </p>
+      <div class="pt-2 mb-4">
+
+        <input
+          type="text"
+          placeholder=""
+          maxlength="4"
+          class="
+            h-11
+            mt-2
+            w-full
+           track
+            border-gray-300 border
+            bg-transparent
+            pl-12
+            pr-4
+            text-center
+          "
+        />
+
+      </div>
+      <div class="">
+        <button class="button btn w-full" routerLink="">Verify</button>
+      </div>
+    </div>
+
+  </ng-container>
+</nz-modal>

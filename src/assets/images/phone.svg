@@ -1,0 +1,10 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <radialGradient id="radial-gradient" cx="1.063" cy="1" r="1.387" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#cda152"/>
+      <stop offset="1" stop-color="#edd185"/>
+    </radialGradient>
+  </defs>
+  <rect id="Base_" data-name="Base " width="40" height="40" rx="15" fill="url(#radial-gradient)"/>
+  <path id="Icon-2" data-name="Icon" d="M2.119,9.785A18.917,18.917,0,0,0,6.76,15.447a1.622,1.622,0,0,0,.168.111,2.581,2.581,0,1,0,.228-4.417c-.043.023-.083.05-.124.075A15.828,15.828,0,0,1,4.978,8.26a15.825,15.825,0,0,1-1.3-3.34c.044-.02.088-.039.131-.062A2.581,2.581,0,1,0,.017,2.438,1.626,1.626,0,0,0,0,2.776,18.923,18.923,0,0,0,2.119,9.785Z" transform="translate(15 12)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2"/>
+</svg>

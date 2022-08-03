@@ -1,0 +1,25 @@
+<div class="text-center mb-6">
+  <div class="text-xs font-light">Enter the code we sent to</div>
+<div class="text-lg font-medium mb-6">098 01 47 989</div>
+
+<div class="lg:px-20 grid-input">
+  <div>
+    <input class="input-form-1" type="number" #num1 formControlName="num1"
+      (keydown)="move($event, 'num1', num2, num4)">
+  </div>
+  <div>
+    <input class="input-form-1" type="number" #num2 formControlName="num2"
+      (keydown)="move($event, 'num2', num3, num1)">
+  </div>
+  <div>
+    <input class="input-form-1" type="number" #num3 formControlName="num3"
+      (keydown)="move($event, 'num3', num4, num2)">
+  </div>
+  <div>
+    <input class="input-form-1" type="number" #num4 formControlName="num4"
+      (keydown)="move($event, 'num4', num4, num3)">
+  </div>
+</div>
+<div class="text-xs font-light active mb-6">Resend code</div>
+
+</div>

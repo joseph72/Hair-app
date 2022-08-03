@@ -1,0 +1,170 @@
+<div class="container mx-auto px-4 py-10">
+  <div class="grid-cols-4 gap-4 lg:grid md:block">
+    <div class="grid grid-cols-1 col-span-1">
+      <app-sidenav-card>
+        <ng-container userProfile>
+          <div class="divide-y divide-gray-200">
+            <div class="flex items-center pb-4">
+              <div><img src="assets/images/man2.svg" alt="" /></div>
+              &nbsp;&nbsp;
+              <div>
+                <div>Michel Dawis</div>
+                <div>Active</div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </ng-container>
+        <ng-container userButtons>
+          <div class="py-8 space-y-4">
+            <button class="button w-52" (click)="showResend()">Resend Password</button>
+            <button class="button w-52" (click)="showModal()">Add Admin</button>
+          </div>
+        </ng-container>
+      </app-sidenav-card>
+    </div>
+    <div class="grid grid-cols-1 col-span-3">
+      <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 col-span-3">
+          <div class="flex items-center">
+            <span class="mr-4">Bookings</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-4 col-span-1">
+          <div>
+            <div class="py-2">
+              <select
+                class="
+                  h-11
+                  w-full
+                  rounded-2xl
+                  border-gray-300 border
+                  bg-transparent
+                  px-5
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
+              >
+                <option>All</option>
+                <option>Wedding</option>
+                <option>Birthday</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-table>
+        <ng-container columnHeader>
+          <th *ngFor="let item of header">{{ item }}</th>
+        </ng-container>
+        <ng-container columnBody>
+          <tr *ngFor="let item of table">
+            <td>
+              {{ item.service }}
+            </td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.value }}</td>
+            <td>{{ item.bookingStatus }}</td>
+            <td>{{ item.paymentStatus }}</td>
+          </tr>
+        </ng-container>
+      </app-table>
+      <div>
+        <button class="button">Show more</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modals -->
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzCentered]="true"
+  [nzFooter]="null"
+  [nzClosable]="false"
+  (nzOnOk)="handleOk()"
+  [nzWidth]="350"
+>
+  <ng-container *nzModalContent>
+    <div class="text-2xl text-center mb-10 ">
+      Send verification email to add new admin
+    </div>
+    <div class="pt-2 mb-4">
+      <label for="">Email</label>
+      <input
+        type="email"
+        placeholder="john@gmail.com"
+        class="
+          h-11
+          w-full
+          rounded-2xl
+          border-gray-300 border
+          bg-transparent
+          px-5
+        "
+      />
+    </div>
+    <div class="">
+      <button class="button btn w-full" (click)="handleOk()">Send</button>
+    </div>
+  </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="confirm" [nzCentered]="true" [nzFooter]="null" [nzClosable]="false" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <div class="text-lg text-center">
+      Confirmation </div>
+      <div class="text-xs text-center mb-4 font-light">
+        Verification e-mail was sucessfully sent. </div>
+        <div class="grid mt-4 mb-8">
+          <img class="place-self-center" src="assets/images/tick.svg" alt="">
+        </div>
+    <div class="flex place-content-center space-x-4">
+    <button class="button btn  -m-0" (click)="handleCancel()">Close</button>
+    </div>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="resend"
+  [nzCentered]="true"
+  [nzFooter]="null"
+  [nzClosable]="false"
+  [nzWidth]="600"
+  (nzOnOk)="handleOk()"
+
+>
+  <ng-container *nzModalContent>
+    <div class="text-2xl text-center mb-10 ">
+      Change password
+    </div>
+    <nz-steps [nzCurrent]="current" nzSize="small" nzProgressDot class="hidden lg:block">
+      <nz-step nzTitle="Password" ></nz-step>
+      <nz-step nzTitle="Enter 2FA"></nz-step>
+      <nz-step nzTitle="Confirn email"></nz-step>
+      <nz-step nzTitle="Success" ></nz-step>
+    </nz-steps>
+    <ng-container *ngIf="current === 0">
+      <app-settings-password></app-settings-password>
+    </ng-container>
+    <ng-container  *ngIf="current === 1">
+      <app-settings-otp></app-settings-otp>
+    </ng-container >
+    <ng-container  *ngIf="current === 2">
+      <app-settings-email></app-settings-email>
+    </ng-container>
+    <ng-container  *ngIf="current === 3">
+      <app-settings-success></app-settings-success>
+    </ng-container>
+      <div class="flex place-content-center space-x-4">
+        <button class="button2 btn -m-0" (click)="pre()" *ngIf="current > 0 && current <= 4 ">Cancel</button>
+        <button class="button btn  -m-0" (click)="next()" *ngIf="current >= 0 && current <= 2 ">Next</button>
+        <button class="button btn  -m-0" (click)="done()" *ngIf="current === 3 ">Done</button>
+      </div>
+  </ng-container>
+</nz-modal>

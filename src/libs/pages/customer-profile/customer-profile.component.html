@@ -1,0 +1,83 @@
+<div class="container mx-auto px-4 py-10">
+  <div  class="mb-6">Customers > Customer profile</div>
+ <div class="lg:grid grid-2-6 md:block ">
+      <app-sidenav-card >
+        <ng-container userProfile>
+          <div class="divide-y divide-gray-200">
+            <div class="flex items-center pb-4 ">
+              <div><img src="assets/images/man2.svg" alt="" /></div>&nbsp;&nbsp;
+              <div>
+                <div>Michel Dawis</div>
+              <div>Active</div>
+              </div>
+            </div>
+
+            <div class="flex items-center py-3">
+              <div><img src="assets/images/email.svg" alt="" /></div>&nbsp;&nbsp;
+              <div>
+                <div class="text-gray-400">Email</div>
+              <div>micheldawis@gmail.com</div>
+              </div>
+            </div>
+            <div class="flex items-center py-3">
+              <div><img src="assets/images/phone.svg" alt="" /></div>&nbsp;&nbsp;
+              <div>
+                <div class="text-gray-400">Phone number</div>
+              <div>+440 99 031 03 46</div>
+              </div>
+            </div>
+            <div class="flex items-center py-3 border-b border-gray-600">
+              <div><img src="assets/images/loc.svg" alt="" /></div>&nbsp;&nbsp;
+              <div>
+                <div class="text-gray-400">Location</div>
+              <div>Oxford street</div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </ng-container>
+        <ng-container userButtons>
+          <div class="py-8">
+            <button class="button">Resend Password </button>
+          </div>
+          <div class="pt-2" >
+            <div>Actions with account</div>
+            <div class="my-4">
+              <button class="button2 w-full">Deactivate </button>
+            </div>
+            <div class="my-4">
+              <button class="button2 w-full">Suspend </button>
+            </div>
+            <div class="my-4">
+              <button class="button2 w-full">Delete </button>
+            </div>
+          </div>
+        </ng-container>
+      </app-sidenav-card>
+   <div class="mt-4 lg:-m-0">
+    <div class="grid grid-4-1">
+      <div class="">
+        <span class="mr-4 " [ngClass]="{'active' : options === 0 }" (click)="switchOption(0)">Bookings</span>
+      <span class="mr-4 " [ngClass]="{'active ' : options === 1 }" (click)="switchOption(1)">Payments</span>
+      </div>
+
+
+          <div class="py-2">
+            <select
+                      class="h-11 w-full rounded-2xl border-gray-300 border bg-transparent px-5 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    >
+                      <option>All</option>
+                      <option>Wedding</option>
+                      <option>Birthday</option>
+                      <option>Other</option>
+                    </select>
+          </div>
+     </div>
+    <app-customers-booking *ngIf="options === 0"></app-customers-booking>
+    <app-customers-payment *ngIf="options === 1"></app-customers-payment>
+
+      <button class="button">Show more </button>
+
+   </div>
+ </div>
+ </div>

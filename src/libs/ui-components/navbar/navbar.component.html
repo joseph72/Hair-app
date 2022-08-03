@@ -1,0 +1,80 @@
+<nav class="flex">
+  <div
+    class="
+      flex
+      items-center
+      space-x-4
+      px-4
+      container
+      mx-auto
+      place-content-between
+      text-white
+      lg:place-content-start
+      lg:space-x-16
+    "
+  >
+    <div class="" routerLink="/">
+      <img class="lg:logo" src="assets/images/Logo.svg" alt="" />
+    </div>
+    <div class="lg:flex align-items-center space-x-4 hidden lg:flex-auto">
+      <div class="menus" *ngFor="let item of menus">
+        <div
+          class="links"
+          [routerLink]="item.url"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+    <i
+      class="text-white text-3xl leading-none cursor-pointer lg:hidden"
+      (click)="open()"
+      nz-icon
+      nzType="menu"
+      nzTheme="outline"
+    ></i>
+    <div class="lg:flex items-center space-x-2 hidden  av" nz-dropdown [nzDropdownMenu]="menu">
+      <nz-avatar
+        [nzSize]="48"
+        nzIcon="user"
+        nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      ></nz-avatar>
+      <div class="text-white text-xs ">Lawrence</div>
+    </div>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item>Logout</li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+</nav>
+<nz-drawer
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  (nzOnClose)="close()"
+>
+  <ng-container *nzDrawerContent>
+    <div class="flex items-center space-x-2 mb-5">
+      <nz-avatar
+        [nzSize]="48"
+        nzIcon="user"
+        nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      ></nz-avatar>
+      <div class="text-gray-700 text-xs">Lawrence Johnson</div>
+    </div>
+    <div
+      class="menus"
+      *ngFor="let item of menus"
+      [routerLink]="item.url"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <div class="text-gray-700 text-xs outline-none">{{ item.name }}</div>
+
+    </div>
+    <div class="text-gray-700 text-xs">Logout</div>
+  </ng-container>
+</nz-drawer>

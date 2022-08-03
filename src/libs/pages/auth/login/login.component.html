@@ -1,0 +1,54 @@
+<div class="space-y-8 ">
+ <div>
+  <div class="lg:hidden xl:hidden"><img class="h-24" src="assets/images/logo-1.png" alt=""></div>
+  <h1 class="">Log in to your account</h1>
+ </div>
+ <div>
+  <div class="flex space-x-4 mb-2">
+    <a class="p-3 px-8 rounded-md border border-gray-200 w-100 hover:border-gray-300"><img src="assets/icons/apple.png" alt=""></a>
+    <a class="p-3 px-8 rounded-md border border-gray-200 w-100 hover:border-gray-300"><img src="assets/icons/google.png" alt=""></a>
+    <a class="p-3 px-8 rounded-md border border-gray-200 w-100 hover:border-gray-300"><img src="assets/icons/facebook.png" alt=""></a>
+   </div>
+   <div class="w-100 border-b text-center"><span class="bg-white relative top-2.5 p-1.5">Or continue with</span></div>
+ </div>
+  <div class="">
+    <div class="pt-2 mb-4">
+      <label for="" class="tex-sm">Email</label>
+      <input
+        type="email"
+        placeholder="john@gmail.com"
+        class=" mt-1 w-full border-gray-300 border bg-transparent px-3 rounded-md text-sm"
+      />
+    </div>
+    <div class="pt-2 mb-2 relative">
+      <label for="" class="tex-sm">Password</label>
+      <img *ngIf="!show" (click)="passwordToggle()" class="absolute right-1 top-11 w-5 cursor-pointer" src="assets/images/eyeon.svg" alt="">
+      <img *ngIf="show" (click)="passwordToggle()" class="absolute right-1 top-11 w-5 cursor-pointer" src="assets/images/eyeoff.svg" alt="">
+      <input
+
+      [type]="show ? 'text' : 'password'"
+        placeholder=""
+        class=" w-full border-gray-300 border bg-transparent px-3 rounded-md mt-1 text-sm"
+      />
+    </div>
+  </div>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center">
+      <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-yellow-400 focus:ring-yellow-400 border-gray-300 rounded">
+      <label for="remember-me" class="ml-2 block text-sm text-gray-900"> Remember me </label>
+    </div>
+
+    <div class="text-sm">
+      <a  routerLink="/auth/reset"class="font-medium text-yellow-400 hover:text-yellow-300"> Forgot your password? </a>
+    </div>
+  </div>
+  <div>
+    <div class="">
+      <button class="button btn w-full text-sm font-medium" routerLink="">Log In</button>
+    </div>
+    <div class="text-center mt-4 text-sm">
+      Don't have an account?
+      <b class="cursor-pointer text-yellow-400 hover:text-yellow-300" routerLink="/auth/signup">Register</b>
+    </div>
+  </div>
+</div>

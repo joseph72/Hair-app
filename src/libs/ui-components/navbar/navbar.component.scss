@@ -1,0 +1,27 @@
+nav {
+  height: 84px;
+  background-color: #212021;
+}
+.links {
+  color: #808080;
+  font-size: 14px;
+  cursor: pointer;
+}
+.menus {
+  padding-bottom: 1.5em;
+  cursor: pointer;
+}
+
+.links:hover{
+  color: #ffffff;
+}
+.active{
+  color: #ffffff;
+  font-weight: 600;
+}
+.logo{
+  width: 13em;
+}
+.av{
+  place-content: flex-end;
+}

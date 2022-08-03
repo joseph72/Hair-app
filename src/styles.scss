@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  background-color: #F4F4FA;
+}
+// Layout
+.flex{
+  display: flex;
+}
+.align-items-center{
+  align-items: center;
+}
+
+th{
+  text-align: left;
+  font-size: 14px;
+  color: #707070;
+  font-weight: 400;
+}
+td{
+  padding: 1.2em 8px;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+td:first-child {
+  border-left-style: solid;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+td:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.tw{
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.max-auto{
+  grid-template-columns: max-content auto;
+}
+
+//buttons
+.button{
+  background-color: #CDA152;
+  color: black;
+
+  padding: 8px 16px;
+  display: block;
+  margin: auto;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.button2{
+  color: #CDA152;
+  background-color: #303030;
+
+  padding: 8px 16px;
+  display: block;
+  margin: auto;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.button2:hover{
+  background-color: #303030ec;
+}
+.button:hover{
+  background-color: #cda252ef;
+}
+.tb{
+  padding: 8px 1em !important;
+  height: 40;
+}
+.mr2{
+  margin-right: 2px;
+}
+h1{
+  font-size: 24px;
+  font-weight: 700;
+}
